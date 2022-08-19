@@ -1,14 +1,13 @@
 .container {
-
-    width: 35%;
+    min-width: 300px;
+    max-width: 40%;
     margin: auto;
     padding: 10px;
 }
 
 .container form {
-    /* margin will get 20% and width 90% so its 90% from the container */
     width: 70%;
-    margin: 0 10%
+    margin: 0 auto;
 }
 
 .item {
@@ -16,13 +15,18 @@
     padding: 15px;
     margin: 5px;
     border-radius: 5px;
+
 }
 
+.item:hover {
+    border-color: black;
+}
 
 label {
+    display: flex;
+    align-items: center;
     color: gray;
     cursor: pointer;
-
     /*  this effect if the checkbox is unchecked */
     animation-name: label-unchecked;
     animation-duration: 1s
@@ -35,70 +39,51 @@ label:hover {
 label:active {
     color: rgb(42, 41, 41);
 }
-
-
 /* hide the default checkbox */
 .item input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+    display: none;
 }
 
 .checkmark {
-    float: right;
+    margin-left: auto;
+    display: flex;
     height: 25px;
     width: 25px;
     border: 2px solid gray;
     background-color: white;
-    cursor: pointer;
-    border-radius: 15px;
-    /* trying to put it in the center */
-    margin-top: -2.5px;
+    border-radius: 50%;
     user-select: none;
-
     /*  this effect if the checkbox is unchecked */
     animation-name: checkbox-unchecked;
     animation-duration: 1s
 }
 
 .true-symbol {
-    padding: 20%;
+    margin: 0 auto;
     color: white;
-
     /*  this effect if the checkbox is unchecked */
     animation-name: true-unchecked;
     animation-duration: 1s;
-
 }
-
 
 .checkbox:checked+label {
     color: black;
-
     animation-name: label-checked;
     animation-duration: 1s
 }
 
 .checkbox:checked+label .checkmark {
     border-color: #95cc69;
-
     animation-name: checkbox-checked;
     animation-duration: 1s
 }
 
-
-
 /* the sumbol will appears when user click on it or on label */
 .checkbox:checked+label .checkmark .true-symbol {
     color: #95cc69;
-
     animation-name: true-checked;
     animation-duration: 1s;
 }
-
-
 
 .search-box {
     display: block;
@@ -115,10 +100,9 @@ label:active {
     font-size: 15px;
 }
 
-
-
 .esc-sign {
-    float: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .esc-sign button {
@@ -136,10 +120,13 @@ label:active {
     color: rgb(42, 41, 41);
 }
 
-
+.container p:first-of-type {
+    margin-top: 0;
+}
 
 .button-container {
     display: flex;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
     margin-top: 30px;
@@ -154,7 +141,6 @@ label:active {
 }
 
 .button-container input[type='button'] {
-    margin-right: 2%;
     background-color: white;
     color: gray;
     border: 1px solid gray;
@@ -170,10 +156,7 @@ label:active {
     background-color: rgb(187, 180, 180);
 }
 
-
-
 .button-container input[type='submit'] {
-    margin-left: 2%;
     background: linear-gradient(90deg, #6bb5fb, #7e87fa);
     border: none;
     box-shadow: 0px 10px 10px 0px #b9bef6;
@@ -190,17 +173,16 @@ label:active {
     box-shadow: 0px 10px 10px 0px #b9bef6;
 }
 
-
-
 @keyframes label-unchecked {
     from {
-        color:black;
+        color: black;
     }
 
     to {
         color: gray;
     }
 }
+
 @keyframes label-checked {
     from {
         color: gray;
@@ -211,16 +193,16 @@ label:active {
     }
 }
 
-
 @keyframes true-unchecked {
     from {
-        color:#95cc69;
+        color: #95cc69;
     }
 
     to {
         color: white;
     }
 }
+
 @keyframes true-checked {
     from {
         color: white;
@@ -231,7 +213,6 @@ label:active {
     }
 }
 
-
 @keyframes checkbox-checked {
     from {
         border-color: gray;
@@ -241,6 +222,7 @@ label:active {
         border-color: #95cc69;
     }
 }
+
 @keyframes checkbox-unchecked {
     from {
         border-color: #95cc69;
@@ -250,4 +232,3 @@ label:active {
         border-color: gray;
     }
 }
-
